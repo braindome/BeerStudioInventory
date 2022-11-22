@@ -1,5 +1,6 @@
 package com.example.inventory
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -21,13 +22,14 @@ class BeerRecyclerAdapter(val context : Context, val catalogue : List<Beer>) : R
         return ViewHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val beer = DataManager.catalogue[position]
 
         holder.nameTextView.text = beer.name
         holder.typeTextView.text = beer.type
         holder.coverImage.setImageResource(beer.cover)
-        holder.priceTextView.text = beer.price.toString()
+        holder.priceTextView.text = beer.price.toString() + "0 kr"
     }
 
     //List's length
