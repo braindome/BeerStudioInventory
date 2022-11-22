@@ -11,13 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        DataManager.createMockData()
+        val beerList = DataManager.catalogue
 
         var recyclerView = findViewById<RecyclerView>(R.id.recycleView)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val adapter = BeerRecyclerAdapter(this, DataManager.catalogue)
+        val adapter = BeerRecyclerAdapter(this, beerList)
 
         recyclerView.adapter = adapter
 
